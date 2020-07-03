@@ -247,7 +247,7 @@ SEXP _H5Pget_obj_track_times( SEXP _ocpl_id );
 /* SEXP _H5Pexist( SEXP _id, SEXP _name ); */
 /* SEXP _H5Pget_size( SEXP _id, SEXP _name, SEXP _size ); */
 /* SEXP _H5Pget_nprops( SEXP _plist_id, SEXP _nprops ); */
-/* SEXP _H5Pget_class_name( SEXP _pcid ); */
+SEXP _H5Pget_class_name( SEXP _pcid );
 /* SEXP _H5Pget_class_parent( SEXP _pcid ); */
 /* SEXP _H5Pisa_class( SEXP _plist, SEXP _pclass ); */
 /* SEXP _H5Pget( SEXP _plid, SEXP _name, SEXP _value ); */

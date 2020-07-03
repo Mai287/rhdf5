@@ -57,8 +57,8 @@ h5ls <- function( file, recursive = TRUE, all=FALSE, datasetinfo=TRUE,
         stop("'recursive' must be number or a logical")
     }
     di <- ifelse(datasetinfo, 1L, 0L)
-    L <- .Call("_h5ls", loc$H5Identifier@ID, depth, di, index_type, order, loc$H5Identifier@native, PACKAGE='rhdf5')
-    h5lsConvertToDataframe(L, all=all, native = loc$H5Identifier@native)
+    L <- .Call("_h5ls", loc$H5Identifier@ID, depth, di, index_type, order, native, PACKAGE='rhdf5')
+    h5lsConvertToDataframe(L, all=all, native = native)
 }
 
 

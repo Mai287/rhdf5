@@ -29,7 +29,7 @@ H5Fcreate <- function( name, flags = h5default("H5F_ACC"), fcpl = NULL, fapl = N
     invisible(h5file)
 }
 
-H5Fopen <- function( name, flags = h5default("H5F_ACC_RD"), fapl = NULL, native = FALSE ) {
+H5Fopen <- function( name, flags = h5default("H5F_ACC_RD"), fapl = NULL ) {
   
   if (length(name)!=1 || !is.character(name)) {
     stop("'name' must be a character string of length 1")
@@ -47,7 +47,7 @@ H5Fopen <- function( name, flags = h5default("H5F_ACC_RD"), fapl = NULL, native 
   
   fid <- .Call("_H5Fopen", name, flags, fapl@ID, PACKAGE='rhdf5')
   if (fid > 0) {
-    h5file = new("H5IdComponent", ID = fid, native = native)
+    h5file = new("H5File", ID = fid)
   } else {
     message("HDF5: unable to open file")
     h5file = FALSE

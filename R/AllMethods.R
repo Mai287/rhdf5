@@ -54,6 +54,33 @@ setMethod("show",signature="H5IdComponent", function(object) {
   }
 })
 
+setMethod(f = "show", 
+          signature = "H5File", 
+          definition = function(object) {
+            cat("HDF5 File ID\n")
+            cat("├ File name:", basename(H5Fget_name(object)), "\n")
+            cat("└ File size:", H5Fget_filesize(object), "bytes\n")
+          }
+)
+
+setMethod(f = "show", 
+          signature = "H5Dataset", 
+          definition = function(object) {
+            cat("HDF5 Dataset\n")
+            cat("Storage Size:", H5Dget_storage_size(object), "bytes\n")
+          }
+)
+
+
+setMethod(f = "show", 
+          signature = "H5PropertyList", 
+          definition = function(object) {
+            cat("HDF5 Property List\n")
+            cat("Type:", H5Pget_class_name(H5Pget_class(object)), "\n")
+          }
+)
+
+
 setMethod( `$`, signature = c('H5IdComponent'),
            function(x, name) {
              h5id = x

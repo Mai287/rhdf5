@@ -29,6 +29,14 @@ SEXP _H5Pget_class( SEXP _plist ) {
     return Rval;
 }
 
+/* char * H5Pget_class_name(hid_t pcid) *\/ */
+SEXP _H5Pget_class_name( SEXP _pcid ) {
+    hid_t pcid = STRSXP_2_HID(_pcid);
+    char *class_name = H5Pget_class_name(pcid);
+    SEXP Rval = mkString(class_name);
+    return Rval; 
+} 
+
 /* hid_t H5Pcopy(hid_t plist ) */
 SEXP _H5Pcopy( SEXP _plist ) {
     hid_t plist = STRSXP_2_HID( _plist);
@@ -1123,7 +1131,6 @@ SEXP _H5Pget_fill_time( SEXP _plist_id ) {
 
 /* herr_t H5Pset_alloc_time(hid_t plist_id, H5D_alloc_time_t alloc_time) */
 SEXP _H5Pset_alloc_time( SEXP _plist_id, SEXP _alloc_time ) {
-    //hid_t plist_id = INTEGER(_plist_id)[0];
     hid_t plist_id = STRSXP_2_HID( _plist_id );
     H5D_alloc_time_t alloc_time = INTEGER(_alloc_time)[0];
     herr_t herr = H5Pset_alloc_time(plist_id, alloc_time);
@@ -1133,7 +1140,6 @@ SEXP _H5Pset_alloc_time( SEXP _plist_id, SEXP _alloc_time ) {
 
 /* herr_t H5Pget_alloc_time(hid_t plist_id, H5D_alloc_time_t * alloc_time) */
 SEXP _H5Pget_alloc_time( SEXP _plist_id ) {
-    //hid_t plist_id = INTEGER(_plist_id)[0];
     hid_t plist_id = STRSXP_2_HID( _plist_id );
     H5D_alloc_time_t alloc_time;
     herr_t herr = H5Pget_alloc_time(plist_id, &alloc_time);
@@ -1917,14 +1923,7 @@ SEXP _H5Pget_obj_track_times( SEXP _ocpl_id ) {
 /*   return Rval; */
 /* } */
 
-/* /\* char * H5Pget_class_name(hid_t pcid) *\/ */
-/* SEXP _H5Pget_class_name( SEXP _pcid ) { */
-/*   hid_t pcid = INTEGER(_pcid)[0]; */
-/* H5Pget_class_name(hid_tpcid); */
-/*   SEXP Rval = R_NilValue; */
-/*   return Rval; */
-/* TODO: UNKOWN RETURN VALUE */
-/* } */
+
 
 /* /\* hid_t H5Pget_class_parent(hid_t pcid) *\/ */
 /* SEXP _H5Pget_class_parent( SEXP _pcid ) { */

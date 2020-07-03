@@ -282,7 +282,7 @@ static R_CallMethodDef libraryRCalls[] = {
   /* {"_H5Pexist", (DL_FUNC) &_H5Pexist, 2}, */
   /* {"_H5Pget_size", (DL_FUNC) &_H5Pget_size, 3}, */
   /* {"_H5Pget_nprops", (DL_FUNC) &_H5Pget_nprops, 2}, */
-  /* {"_H5Pget_class_name", (DL_FUNC) &_H5Pget_class_name, 1}, */
+  {"_H5Pget_class_name", (DL_FUNC) &_H5Pget_class_name, 1},
   /* {"_H5Pget_class_parent", (DL_FUNC) &_H5Pget_class_parent, 1}, */
   /* {"_H5Pisa_class", (DL_FUNC) &_H5Pisa_class, 2}, */
   /* {"_H5Pget", (DL_FUNC) &_H5Pget, 3}, */
